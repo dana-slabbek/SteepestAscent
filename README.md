@@ -4,6 +4,7 @@ A way to find a global maximum is to consider several different starting points,
 
 Consider the function: {-(x[1]^2+x[2]^2-2)*(x[1]^2+x[2]^2-1)*(x[1]^2+x[2]^2)*(x[1]^2+x[2]^2+1)*(x[1]^2+x[2]^2+2))} x {(2-sin(x[1]^2-x[2]^2)*cos(x[2]-exp(x[2])))}.
 It has several local maxima in the region [-1.5,1.5] X [-1.5,1.5]. 
+
 Using several randomly chosen starting points, steepest ascent is used to find all of the local maxima of f, and thus the global maximum.
 Here I use the command runif(2,-1.5,1.5) to generate a random point (x,y) in the region [-1.5,1.5] X [-1.5,1.5]. 
 
