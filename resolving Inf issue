@@ -1,0 +1,12 @@
+#Note: if y is too large then exp(y) is Inf and cos(y-exp(y)) will return NaN. This can pose problems for maximizing f. 
+#One solution is to ignore the term cos(y-exp(y)) and code up the function f as follows:
+
+f <- function(x) { 
+#x is a vector of length 2 
+s <- sum(x^2)
+z <- -(s-2)(s-1)s(s+1)(s+2)* (2-sin(x[1]^2-x[2]^2)cos(x[2]-exp(x[2]))) 
+if (is.nan(z)) { 
+  z <- -(s-2)(s-1)s(s+1)*(s+2)*2 
+} 
+return(z) 
+}
