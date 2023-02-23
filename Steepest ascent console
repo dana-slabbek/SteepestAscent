@@ -1,0 +1,23 @@
+xstar <- rep(0,50)
+fvalue <- rep(0,50)
+convergence <- rep(0,50)
+for (i in 1:50) {}
+for (i in 1:50) {
+out <-
+optim(par=x0[i,],fn=f,gr=grad_f,method="CG",control=list(fnscale=-
+1,maxit=500))
+}
+xstar <- matrix(0,50,2)
+for (i in 1:50) {
+out <-
+optim(par=x0[i,],fn=f,gr=grad_f,method="CG",control=list(fnscale=-
+1,maxit=500))
+xstar[i,] <- out$par
+fvalue[i] <- out$value
+convergence[i] <- out$convergence
+}
+sum(convergence==0) #will tell you how many times it converged
+i_conv <- which(convergence==0) #selects only the starting points where it converged
+fvalue[i_conv] #gives the function values at the points where it converges
+xstar[i_conv,] #gives the points where it converges
+i_opt <- which(convergence==0 & fvalue>=1) #is too strict for rounding errors
